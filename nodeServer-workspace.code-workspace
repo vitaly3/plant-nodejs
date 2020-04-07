@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "D:\\Ushakov\\node\\node-restful-api-tutorial-13-controllers"
+		}
+	],
+	"settings": {
+		"editor.renderWhitespace": "all",
+		"editor.tabSize": 2
+	}
+}
