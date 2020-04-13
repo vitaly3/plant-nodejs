@@ -37,8 +37,22 @@ module.exports.getAll = async function(req, res) {
     });
   } catch (e) {
     errorHandler(res, e)
-   
   }
+
+}
+
+function connectToMySQL() {
+  let mysql = require('mysql');
+  var sql = mysql.createConnection({
+      host     : process.env.SKUD_HOST,
+      port     : process.env.SKUD_PORT,
+      user     : process.env.SKUD_USER,
+      password : process.env.SKUD_PASSWORD
+  });
+  if (sql.state === "disconnected") {
+    sql.connect((err) => { } );
+  }
+  return sql;
 }
 
 
