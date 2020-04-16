@@ -5,6 +5,7 @@
   "author": "Vitalii Ushakov",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -15,7 +16,10 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "start": "node server",
-    "debug": "nodemon --inspect server"
+    "start": "node index",
+    "server": "nodemon -L index",
+    "client-install": "npm install --prefix client",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   }
 }
