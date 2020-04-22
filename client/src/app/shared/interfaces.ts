@@ -1,4 +1,4 @@
-module.exports = {
+export interface Cnc {
   id: Number,
   descr: String,
   plant_name: String,
@@ -11,4 +11,9 @@ module.exports = {
   skudId1: Number,
   skudId2: Number,
   average_2019: String
+}
+
+export interface Department {
+  department_name: String,
+  department_id: Number
 }

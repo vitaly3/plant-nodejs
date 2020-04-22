@@ -1,0 +1,25 @@
+<div class="page-title">
+  <h4>Цех</h4>
+</div>
+<div class="row" *ngIf="cncDepartments$ | async as cncDepartments else loader">
+  <div class="col s12">
+    <div class="collection" *ngIf="cncDepartments.length !== 0 else empty">
+      <a
+        *ngFor="let cncDepartment of cncDepartments"
+        [routerLink]="['/departments', cncDepartment.department_id]"
+        class="collection-item"
+      >
+        {{cncDepartment.department_name}}
+      </a>
+    </div>
+    <ng-template #empty>
+      <div class="center">
+        Category is empty
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+<router-outlet></router-outlet>

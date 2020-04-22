@@ -11,9 +11,9 @@ const gscor = require('./api/routes/gscor');
 app.use(require('cors')())
 app.use(express.static(__dirname + '/public'));
 app.use(require('morgan')('dev'));
-app.use('/users', users);
-app.use('/cnc', cnc);
-app.use('/devices', devices);
+app.use('/api/users', users);
+app.use('/api/cnc', cnc);
+app.use('/api/devices', devices);
 app.use('', gscor);
 
 module.exports = app;
