@@ -12,6 +12,7 @@ export class UsersPageComponent implements OnInit {
 
   users: User[]
   loading = false
+  link = [];
 
   constructor(private userService: UserService) { }
 
