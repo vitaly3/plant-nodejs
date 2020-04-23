@@ -37,7 +37,6 @@ module.exports.getDepartmentAll = function(req, res) {
       return pool.request().query(`SELECT DISTINCT department_name, department_id FROM cnc order by department_name`)
     })
     .then(result => {
-      console.log(result);
       let cnc = result.recordsets[0]
       res.setHeader('Access-Control-Allow-Origin', '*')
       res.status(200).json(cnc);

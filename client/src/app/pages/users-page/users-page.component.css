@@ -1,0 +1,20 @@
+.user-row {
+  display: flex;
+  justify-content: flex-start;
+}
+.user-row-detail {
+  display: flex;
+  justify-content: space-between;
+}
+.user-id {
+  width: 2rem;
+}
+.user-name {
+  width: 30rem;
+}
+.user-type {
+  width: 10rem;
+}
+.user-status {
+  width: 10rem;
+}

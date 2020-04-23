@@ -1,0 +1,40 @@
+<div class="page-title">
+  <h4>Список сотрудников</h4>
+</div>
+<div class="row" *ngIf="!loading; else loader">
+  <div class="col s12">
+    <div class="collection" *ngIf="users.length !== 0 else empty">
+      <a
+        *ngFor="let user of users; index as i; "
+        class="collection-item"
+        (click) = "onClickUser(user.ID)"
+      >
+        <span class='user-row'>
+          <span class='user-id'>
+            {{i}}
+          </span>
+          <span class='user-row-detail'>
+            <span class='user-name'>
+              {{user.NAME}}
+            </span>
+            <span class='user-type'>
+              {{user.TYPE}}
+            </span>
+            <span class='user-status'>
+              {{user.STATUS}}
+            </span>
+          </span>
+        </span>
+      </a>
+    </div>
+    <ng-template #empty>
+      <div class="center">
+        Category is empty
+      </div>
+    </ng-template>
+  </div>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>
+<router-outlet></router-outlet>

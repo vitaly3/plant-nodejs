@@ -9,12 +9,13 @@ module.exports.getAll = async function(req, res) {
     let queryLimit = '';
     let queryOffset = '';
     for (let value in req.query) {
-        if (value === 'LIMIT') {
-        queryLimit = `LIMIT ${req.query[value]}`;
-        } else if (value === 'OFFSET') {
-        queryOffset = `OFFSET ${req.query[value]}`;
+          let paramQuery = value.toLowerCase();
+        if (paramQuery === 'limit') {
+          queryLimit = `LIMIT ${req.query[value]}`;
+        } else if (paramQuery === 'offset') {
+          queryOffset = `OFFSET ${req.query[value]}`;
         } else {
-        queryWhere.push(`${value} = '${req.query[value]}'`);
+          queryWhere.push(`${value} = '${req.query[value]}'`);
         }
     }
     let allQuery = 'SELECT * From `tc-db-main`.personal';

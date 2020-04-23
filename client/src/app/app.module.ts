@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CncPageComponent } from './pages/cnc-page/cnc-page.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { DepartmentsPageComponent } from './pages/departments-page/departments-page.component';
+import { UsersPageComponent } from './pages/users-page/users-page.component';
+import { UserFormComponent } from './pages/users-page/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { DepartmentsPageComponent } from './pages/departments-page/departments-p
     SiteLayoutComponent,
     CncPageComponent,
     LoaderComponent,
-    DepartmentsPageComponent
+    DepartmentsPageComponent,
+    UsersPageComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,

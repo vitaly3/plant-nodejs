@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SiteLayoutComponent implements OnInit {
 
   links = [
-    {url: '/departments', name: 'Цеха'}
+    {url: '/departments', name: 'Цеха'},
+    {url: '/users', name: 'Персонал'}
   ]
   constructor() { }
 
