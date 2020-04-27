@@ -1,0 +1,15 @@
+<nav style="background-color: white;">
+  <div class="nav-wrapper">
+    <ul class="hide-on-med-and-down">
+      <li
+      *ngFor="let link of links"
+      >
+        <a class="nav-text"
+        [routerLink]="[link.url]"
+        >
+         {{link.title}}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

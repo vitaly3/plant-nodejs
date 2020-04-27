@@ -10,6 +10,9 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { DepartmentsPageComponent } from './pages/departments-page/departments-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { UserFormComponent } from './pages/users-page/user-form/user-form.component';
+import { UsersNavComponent } from './pages/users-page/users-nav/users-nav.component';
+import { UsersListComponent } from './pages/users-page/users-list/users-list.component';
+import { UsersLogComponent } from './pages/users-page/users-log/users-log.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { UserFormComponent } from './pages/users-page/user-form/user-form.compon
     LoaderComponent,
     DepartmentsPageComponent,
     UsersPageComponent,
-    UserFormComponent
+    UserFormComponent,
+    UsersNavComponent,
+    UsersListComponent,
+    UsersLogComponent
   ],
   imports: [
     BrowserModule,

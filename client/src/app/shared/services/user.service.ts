@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,5 +15,19 @@ export class UserService {
     return this.http.get('/api/users')
   }
 
+  getPersonListById(params: any = {}): Observable<any> {
+    return this.http.get('/api/users', {
+      params: new HttpParams({
+        fromObject: params
+      })
+    })
+  }
 
+  getLogUsers(params: any = {}): Observable<any> {
+    return this.http.get('/api/users/log', {
+      params: new HttpParams({
+        fromObject: params
+      })
+    })
+  }
 }

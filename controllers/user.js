@@ -28,6 +28,7 @@ module.exports.getAll = async function(req, res) {
         allQuery += ` ${queryLimit} ${queryOffset}`;
     }
     const sql = await mysql.createConnection(keys.mySQLConfig);
+    console.log('ALL QUERYY ', allQuery);
     sql.query(allQuery, (error, response) => {
       if (error) {
         res.status(400).json({message: error});
@@ -136,27 +137,27 @@ module.exports.getLogByUserId = async function(req, res) {
 }
 
 module.exports.getLog = async function(req, res) {
-  const queryLogStart = req.query.START || '';
-  const queryLogEnd = req.query.END || '';
-  const queryLimit = req.query.LIMIT || '';
-  const queryOffset = req.query.OFFSET || '';
+  const queryLogStart = req.query.start || '';
+  const queryLogEnd = req.query.end || '';
+  const queryLimit = req.query.limit || '';
+  const queryOffset = req.query.offset || '';
 
-  let query = 'SELECT log.ID, log.LOGTIME as TIME, log.DEVHINT, log.EMPHINT, '+
-      'ord(substr(log.logdata,5,1)) as USERACTION, '+
-      'IF (ord(substr(log.logdata,5,1)) = 1, "ВЫХОД", IF (ord(substr(log.logdata,5,1)) = 2, "ВХОД", "НЕОПРЕДЕЛЕНО")) as ACTION,'+
-      'person.ID, person.TABID, person.name As NAME, person.pos As POSITION, device.id as DEVICEID, device.name As DEVICENAME '+
-      'FROM `tc-db-Log`.logs As Log inner Join `tc-db-main`.personal As person On Log.EMPHINT = person.ID '+
-      'inner Join `tc-db-main`.devices As device On Log.devHINT = device.ID '+
-      'WHERE substr(logdata,1,2)=0xFE06';
+  let query = `SELECT log.ID, log.LOGTIME as TIME, log.DEVHINT, log.EMPHINT,
+      ord(substr(log.logdata,5,1)) as USERACTION,
+      IF (ord(substr(log.logdata,5,1)) = 1, "ВЫХОД", IF (ord(substr(log.logdata,5,1)) = 2, "ВХОД", "НЕОПРЕДЕЛЕНО")) as ACTION,
+      person.ID, person.TABID, person.name As NAME, person.pos As POSITION, device.id as DEVICEID, device.name As DEVICENAME
+      FROM \`tc-db-Log\`.logs As Log inner Join \`tc-db-main\`.personal As person On Log.EMPHINT = person.ID 
+      inner Join \`tc-db-main\`.devices As device On Log.devHINT = device.ID
+      WHERE substr(logdata,1,2)=0xFE06`;
   let startLog = "";
   if (queryLogStart) {
-    startLog = " AND Log.LOGTIME >= '"+moment.unix(+queryLogStart).format('YYYY-MM-DD HH:mm:ss')+"'";
+    startLog = ` AND Log.LOGTIME >= '${+moment.unix(+queryLogStart).format('YYYY-MM-DD HH:mm:ss')}'`;
   }
   let endLog = "";
   if (queryLogEnd) {
-    endLog = " AND Log.LOGTIME <= '"+moment.unix(+queryLogEnd).format('YYYY-MM-DD HH:mm:ss')+"'";
+    endLog = ` AND Log.LOGTIME <= '${+moment.unix(+queryLogEnd).format('YYYY-MM-DD HH:mm:ss')}'`;
   }
-  query += `${startLog} ${endLog} ORDER BY Log.LOGTIME ASC`;
+  query += `${startLog} ${endLog} ORDER BY Log.LOGTIME DESC`;
 
   if (queryLimit) {
     query += ` LIMIT ${queryLimit}`;

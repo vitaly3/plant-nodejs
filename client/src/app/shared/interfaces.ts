@@ -18,6 +18,20 @@ export interface Department {
   department_id: Number
 }
 
+export interface UserLog {
+  ACTION: String,
+  DEVHINT: Number,
+  DEVICEID: Number,
+  DEVICENAME: String,
+  EMPHINT: Number,
+  ID: Number,
+  NAME: String,
+  POSITION: String,
+  TABID: String,
+  TIME: String,
+  USERACTION: Number
+}
+
 export interface User {
   ID: Number,
   NAME: String,
@@ -28,7 +42,8 @@ export interface User {
   TABID: String,
   TELEGRAM_CHATID: String,
   TYPE: String,
-  USER_MONVIEW_POLICY: String
+  USER_MONVIEW_POLICY: String,
+  image: string
 
   // USER_ALMRESTRICTION: 0
   // USER_APPLS_EDIT_ALL: 1
@@ -153,4 +168,10 @@ export interface User {
   // SMS_TARGETNUMBER: ""
   // SOAA_KEY_STATUS: "UPDATE_REQUIRED"
   // SOAA_UID: null
+}
+
+export interface Filter {
+  start?: Date,
+  end?: Date,
+  order?: number
 }

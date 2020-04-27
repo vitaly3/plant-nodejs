@@ -1,0 +1,12 @@
+.collection-id {
+    max-width: 25px;
+}
+.collection-time {
+    max-width: 180px;
+}
+.collection-name {
+    max-width: 400px;
+}
+.collection-action {
+    max-width: 70px;
+}

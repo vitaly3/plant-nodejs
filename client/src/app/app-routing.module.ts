@@ -5,6 +5,8 @@ import { CncPageComponent } from './pages/cnc-page/cnc-page.component';
 import { DepartmentsPageComponent } from './pages/departments-page/departments-page.component';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { UserFormComponent } from './pages/users-page/user-form/user-form.component';
+import { UsersListComponent } from './pages/users-page/users-list/users-list.component';
+import { UsersLogComponent } from './pages/users-page/users-log/users-log.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
         {path: ':id', component: CncPageComponent}
       ]},
       {path: 'users', component: UsersPageComponent, children:[
+        {path: '', component: UsersListComponent},
+        {path: 'log', component: UsersLogComponent},
         {path: ':id', component: UserFormComponent}
       ]}
     ]
