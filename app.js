@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 require('dotenv').config();
-
+const path = require('path')
 const users = require('./api/routes/users');
 const cnc = require('./api/routes/cnc');
 const devices = require('./api/routes/devices');
