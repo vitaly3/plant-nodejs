@@ -19,7 +19,7 @@
         <tbody>
           <tr *ngFor="let user of users; index as i;">
             <td>{{i}}</td>
-            <td>{{user.TIME | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
+            <td>{{user.TIME | date: 'dd.MM.yyyy HH:mm:ss z'}}</td>
             <td>{{user.NAME}}</td>
             <td>{{user.ACTION}}</td>
             <td>{{user.TABID}}</td>
