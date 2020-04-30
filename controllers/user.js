@@ -172,7 +172,10 @@ module.exports.getLog = async function(req, res) {
         res.status(400).json({message: error});
         sql.end();
       } else {
-        res.status(200).json(response);
+        res.status(200).json(response.map((user) => {
+          user.TIME = moment(user.TIME).format('YYYY-MM-DD HH:mm:ss')
+          return user
+        }));
         sql.end();
       }
     });
