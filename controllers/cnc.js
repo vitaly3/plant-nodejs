@@ -13,7 +13,7 @@ module.exports.getAll = async function(req, res) {
     mssql.close();
   }
 }
-
+// SELECT a.*, next.*, datediff(s, a.data_record, next.data_record) from workshop_5_9 a INNER JOIN workshop_5_9 AS next ON next.id = ( SELECT MIN(id) FROM workshop_5_9 WHERE workshop_5_9.id > a.id)
 module.exports.getCncByDepartmentId = function(req, res) {
   new mssql.ConnectionPool(keys.msSQLConfig).connect().then(
     pool => {
