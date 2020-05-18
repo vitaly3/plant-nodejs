@@ -5,13 +5,32 @@
 <div class="row" *ngIf="departmentCncs; else loader">
   <div class="col s12">
     <div class="collection" *ngIf="departmentCncs.length !== 0 else empty">
-      <a
+
+      <p *ngFor="let cnc of departmentCncs"
+      [routerLink]="['/cnc', cnc.id]"
+      class="collection-item">
+        <label>
+          <input type="checkbox" class="filled-in"/>
+          <span class='user-name'>
+            {{cnc.department_name}}
+          </span>
+          <span class='user-name'>
+            {{cnc.descr}}
+          </span>
+        </label>
+      </p>
+
+
+      <!-- <a
         *ngFor="let cnc of departmentCncs"
         [routerLink]="['/cnc', cnc.id]"
         class="collection-item"
       >
-        {{cnc.descr}}
-      </a>
+      <span class='user-name'>
+        {{cnc.department_name}}
+      </span>
+      
+    </a> -->
     </div>
     <ng-template #empty>
       <div class="center">

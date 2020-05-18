@@ -11,6 +11,7 @@ import { Params } from '@angular/router';
 export class UsersListComponent implements OnInit {
 
   users: User[]
+  testUsers = []
   loading = false
   links = [];
 
@@ -65,12 +66,14 @@ export class UsersListComponent implements OnInit {
     this.userService.getPersonListById(params).subscribe(
       (users) => {
         this.users = users.sort(this.compare)
+        this.testUsers[user.ID] = users.sort(this.compare)
       },
       (error) => {
         console.log(error)
       },
       () => {
         this.loading = false
+        console.log(this.testUsers)
       }
     )
   }

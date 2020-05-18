@@ -1,4 +1,7 @@
 <!--SIDEBAR-->
+<!-- <mat-toolbar>
+  <span>GSCOR</span>
+</mat-toolbar> -->
 <ul class="sidenav sidenav-fixed a-sidenav">
   <h4>GSCOR</h4>
   <li *ngFor="let link of links" class="bold" routerLinkActive="active">
@@ -9,6 +12,10 @@
     <a href="#" class="waves-effect waves-orange" (click)="logout($event)">Выйти</a>
   </li> -->
 </ul>
+<!-- <mat-sidenav-container>
+  <mat-sidenav>Start</mat-sidenav>
+  <mat-sidenav-content>Main</mat-sidenav-content>
+</mat-sidenav-container> -->
 <main class="content">
   <router-outlet></router-outlet>
 </main>

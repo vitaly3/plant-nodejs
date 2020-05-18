@@ -7,7 +7,6 @@
       <table>
         <thead>
           <tr>
-            <th>№</th>
             <th>Дата</th>
             <th>Сотрудник</th>
             <th>Тип</th>
@@ -18,7 +17,6 @@
         </thead>
         <tbody>
           <tr *ngFor="let user of users; index as i;">
-            <td>{{i}}</td>
             <td>{{user.TIME | date: 'dd.MM.yyyy HH:mm:ss'}}</td>
             <td>{{user.NAME}}</td>
             <td>{{user.ACTION}}</td>

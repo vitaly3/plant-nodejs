@@ -13,6 +13,10 @@ import { UserFormComponent } from './pages/users-page/user-form/user-form.compon
 import { UsersNavComponent } from './pages/users-page/users-nav/users-nav.component';
 import { UsersListComponent } from './pages/users-page/users-list/users-list.component';
 import { UsersLogComponent } from './pages/users-page/users-log/users-log.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { UsersLogComponent } from './pages/users-page/users-log/users-log.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

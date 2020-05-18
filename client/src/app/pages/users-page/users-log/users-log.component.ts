@@ -32,7 +32,6 @@ export class UsersLogComponent implements OnInit {
     this.loading = true
     this.userService.getLogUsers(params).subscribe(
       (users) => {
-        // this.users = users.filter( (u) => u.TYPE === 'EMP' && u.STATUS === 'AVAILABLE')
         this.users = this.users.concat(users)
       },
       (error) => {
